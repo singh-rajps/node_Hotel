@@ -8,27 +8,13 @@ app.use(bodyParser.json());
 
 const db = require('./db')
 
-
-
-
-// const mongoose = require('mongoose');
-
-// mongoose.connect( 
-//     "mongodb://localhost:27017/", 
-//     { 
-//       dbName: "hotels", 
-//       useNewUrlParser: true, 
-//       useUnifiedTopology: true, 
-//     }, 
-//     (err) => 
-//       err ? console.log(err) : console.log("Connected to hotels database"));
-
-
-
-
-
-
-app.get('/', (req, res) => {
+//Middleware function
+const logRequest = (req,res,next)=>{
+    console.log(`${new Date().toLocaleDateString()} Request made to ${originalURl}`);
+    next();
+}
+app.use(logRequest);
+app.get('/',(req, res) => {
     res.send('Hello World!')
 })
 
