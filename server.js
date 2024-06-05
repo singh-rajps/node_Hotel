@@ -1,13 +1,13 @@
 const express = require('express')
 const app = express()
+
 //const cors = require("cors"); 
-const bodyParser = require('body-parser');
+const bodyParser = require('body-parser')
 
 app.use(bodyParser.json());
 
 const db = require('./db')
 
-const port = 4500
 
 
 
@@ -41,6 +41,6 @@ app.use('/person',personRoutes)
 app.use('/menu',menuItemRoutes)
 
 
-app.listen(port, () => {
+app.listen(PORT, () => {
     console.log(`Example app listening on port ${port}`)
 })
